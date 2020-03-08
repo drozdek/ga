@@ -1,0 +1,29 @@
+/* add reset.css file */
+@import "normalize.css";
+
+body {
+    background: rgb(34,50,61);    
+    display: flex;
+}
+
+header {
+    background: rgba(8,28,36, 1);
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.header--logo {
+    height: 40px;
+    padding: 6px 0
+}
+
+.header__logo--center {
+    margin: 0 auto;
+}
+
+
+
