@@ -24,3 +24,17 @@ header {
 .header__logo--center {
     margin: 0 auto;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+section {
+    width: 50%;
+    margin: auto;
+    
+}

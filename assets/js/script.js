@@ -7,29 +7,33 @@ const Movies = function () {
 };
 
 /**
- * @method fetchAll fetch all movies
+ * @method routerInitialize initialize path change
  * 
- * @returns {obj} movies list
+ * @returns {none}
  */
 
-Movies.prototype.router = function () {
-  let pageName = window.location.hash || '#index.html';
-  document.getElementsByClassName('page').classList.add = "hide";
-  document.getElementsByClassName('page').classList.add = "show";
-
+Movies.prototype.routerInitialize = function () {
+  let pageName = window.location.hash || '#page1';
 
   switch (pageName) {
     case '#page1': {
-      alert('p1');
+      movies.fetchAll();
       break;
     }
     case '#page2': {
-      alert('p2')
+      break;
     }
+    default:
+
   }
 
 }
 
+/**
+ * @method fetchAll fetch all movies
+ * 
+ * @returns {obj} movies list
+ */
 Movies.prototype.fetchAll = function () {
 
   //change context
@@ -42,21 +46,35 @@ Movies.prototype.fetchAll = function () {
     return response.json()
   }).then(function (data) {
     _self.showMovies(data.results);
-    debugger;
   });
 
   return data;
 
 };
 
+
+/**
+ * @method showMovies show movies
+ * 
+ * @param {Array}  videos array 
+ */
 Movies.prototype.showMovies = function (arg) {
-  for (var i = 0; i <= arg.length; i++) {
-    console.log(arg[i]);
+
+  var mainContainer = document.getElementById("page1_ul");
+
+  for (var i = 0; i < arg.length; i++) {
+    console.log(arg[i])
+    var div = document.createElement('div');
+    div.innerHTML = "<img src="+arg[i].poster_path+" />";
+    mainContainer.appendChild(div)
   }
 
-}
+};
 
+/**
+ * instantiate Movies object
+ */
 const movies = new Movies();
-movies.fetchAll();
 
-window.addEventListener('hashchange', movies.router());
+movies.routerInitialize()
+window.addEventListener('hashchange', movies.routerInitialize());
