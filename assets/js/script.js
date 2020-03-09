@@ -11,7 +11,6 @@ const Movies = function () {
  * 
  * @returns {none}
  */
-
 Movies.prototype.routerInitialize = function () {
   let pageName = window.location.hash || '#page1';
 
@@ -38,6 +37,7 @@ Movies.prototype.fetchAll = function () {
 
   //change context
   const _self = this;
+
   const config = {
     url: "https://api.themoviedb.org/4/list/1?page=1&api_key=574c3d28a19ee50fbd1077e77c56fd67"
   };
@@ -52,7 +52,6 @@ Movies.prototype.fetchAll = function () {
 
 };
 
-
 /**
  * @method showMovies show movies
  * 
@@ -62,13 +61,14 @@ Movies.prototype.showMovies = function (arg) {
 
   var mainContainer = document.getElementById("page1_ul");
 
+  // apply loop of good performance
   for (var i = 0; i < arg.length; i++) {
-    console.log(arg[i])
-    var div = document.createElement('div');
-    div.innerHTML = "<img src="+arg[i].poster_path+" />";
-    mainContainer.appendChild(div)
+    var li = document.createElement('li');
+    li.innerHTML = `<img src="https://image.tmdb.org/t/p/w92/${arg[i].poster_path}" alt="${arg[i].title}"/> \
+                        <p>${arg[i].title+"("+arg[i].release_date})</p> \
+                        <span>${arg[i].overview}</span>`;
+    mainContainer.appendChild(li);
   }
-
 };
 
 /**
