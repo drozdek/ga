@@ -1,9 +1,9 @@
 # ga
 
-This repo fetches an API from external server as well:
+Fetches an API from external server (https://www.themoviedb.org/) to perform a REST query:
 
-1. Commented out code
-2. Keeping code well structured.
-3. Fetching API 
-4. Injecting json() response to HTML markup
-5. CSS in BEM format
+1. Comments code according to yuidoc style.
+2. Keeps code well structured. (html, js, css in separate files)
+3. Fetches API 
+4. Injects json() response to HTML markup
+5. CSS applied in BEM format
